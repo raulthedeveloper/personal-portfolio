@@ -1,0 +1,21 @@
+
+.navigation{
+    background-color: rgb(29, 29, 29);
+    margin-bottom: 3rem;
+    }
+    
+    .navigation ul{
+        width: 50%;
+        float: right;
+        list-style: none;
+        display: flex;
+    }
+
+    .navigation li{
+        margin: 1rem;
+    }
+
+    .navigation li:hover{
+        color: green;
+    }
+
