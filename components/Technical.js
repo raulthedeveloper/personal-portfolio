@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 
 
-export default function Technical({toggleSlide}) {
-
+export default function Technical({toggleSlide,techExperience}) {
+console.log(techExperience.next.experience)
 
 
     return (
@@ -16,10 +16,10 @@ export default function Technical({toggleSlide}) {
               <div className="row" style={{"marginBottom":"1.2rem","justifyContent":"space-between"}}>
 
           
-        <div onClick={()=>toggleSlide(true,"/images/react-logo.png","I am react text")} className={styles.logoBox}>
+        <div onClick={()=>toggleSlide(true,"/images/react-logo.png",'hello')} className={styles.logoBox}>
         <Image
         src="/images/react-logo.png"
-        alt="Picture of the author"
+        alt="react logo"
         width={120}
         height={120}
       />

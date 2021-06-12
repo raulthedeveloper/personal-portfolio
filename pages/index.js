@@ -6,12 +6,80 @@ import Projects from '../components/Projects'
 import HireMe from '../components/HireMe'
 import Reviews from '../components/Reviews'
 import TechInfoSlide from '../components/TechInfoSlide'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import axios from 'axios'
+
+
+
+const options = {
+  method: 'GET',
+  url: 'http://portfoliobackend.local/wp-json/wp/v2/pages'
+};
+
+
+
+
+
+
 
 export default function Home() {
   let [showSlide, setShowSlide ] = useState(false)
   let [ slideImg, setSlideImg ] = useState(String)
   let [ slideText, setSlideText ] = useState(String)
+
+  let [pageState, setPageState] = useState({
+    
+  })
+
+  let [image, setImage] = useState(String)
+
+
+  useEffect(() => {
+    axios.request(options).then(function (response) {
+      console.log(response.data[0].ACF.about_me_image.url);
+      setImage(response.data[0].ACF.about_me_image.url)
+      const apiData = response.data[0].ACF
+
+      setPageState({
+        introImg:apiData.about_me_image.url,
+        introText:apiData.about_me,
+        hireTitle:apiData.hire_title,
+        hireText:apiData.hire_me,
+        techExperience:{
+        react:{
+          experience:apiData.react_experience
+        },
+        swift:{
+          experience:apiData.swift_experience
+        },
+        php:{
+          experience:apiData.php_experience
+        },
+        sass:{
+          experience:apiData.sass_experience
+        },
+        next:{
+          experience:apiData.next_experience
+        },
+        vue:{
+          experience:apiData.vue_experience
+        },
+        wordpress:{
+          experience:apiData.wordpress_experience
+        },
+        nuxt:{
+          experience:apiData.nuxt_experience
+        }
+      }
+      })
+
+    }).catch(function (error) {
+      console.error(error);
+    });
+  } ,[])
+  
+
+
 
   function toggleSlide(bool,logo,text){
     console.log('The slide is working')
@@ -29,10 +97,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Layout>
-      <Introduction></Introduction>
+      <Introduction image={pageState.introImg} text={pageState.introText}></Introduction>
 
       {
-        showSlide ? <TechInfoSlide toggleSlide={toggleSlide} slideImg={slideImg} slideText={slideText}/> : <Technical toggleSlide={toggleSlide} />
+        showSlide ? <TechInfoSlide toggleSlide={toggleSlide} slideImg={slideImg} slideText={slideText}/> : <Technical techExperience={pageState.techExperience} toggleSlide={toggleSlide} />
       }
       
     <section>
@@ -45,7 +113,7 @@ export default function Home() {
 
       
       <section>
-      <HireMe></HireMe>
+      <HireMe title={pageState.hireTitle} text={pageState.hireText}></HireMe>
       </section>
      
     </Layout>
