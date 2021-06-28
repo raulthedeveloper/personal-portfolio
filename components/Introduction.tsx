@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container,Row,Col} from 'react-bootstrap'
+import {Container,Row,Col,Image} from 'react-bootstrap'
 
 type Props ={
   image:string,
@@ -24,7 +24,7 @@ export default function Introduction({image,text}:Props) {
 
           <Col md={4} sm={12}>
             {
-              image ? <img className="profile-img" src={image} alt="My Headshot" /> : <img src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="" />
+              image ? <Image fluid className="profile-img" src={image} alt="My Headshot" /> : <Image fluid src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" alt="" />
             }
             
           </Col>

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
-import Layout from '../components/Layout'
+import Layout from '../components/layouts/Layout'
 import Introduction from '../components/Introduction'
 import Technical from '../components/Technical'
 import Projects from '../components/Projects'
@@ -10,27 +10,29 @@ import Reviews from '../components/Reviews'
 import TechInfoSlide from '../components/TechInfoSlide'
 
 import { useState,useEffect } from 'react'
-import axios from 'axios'
 
 
 
-const options = {
-  method: 'GET',
-  url: 'http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio'
-};
+export async function getStaticProps(context) {
+  const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}
 
 
 
 
 
-const portfolioOptions = {
-  method: 'GET',
-  url: 'http://portfoliobackend.local/wp-json/wp/v2/portfolio_item'
-};
-
-
-
-export default function Home() {
+export default function Home({data}) {
   let [showSlide, setShowSlide ] = useState(false)
   let [ slideImg, setSlideImg ] = useState(String)
   let [ slideText, setSlideText ] = useState(String)
@@ -45,21 +47,17 @@ export default function Home() {
 
 
   useEffect(() => {
-    axios.request(options).then(function (response) {
-      console.log(response.data[0].ACF.about_me_image.url);
-      setImage(response.data[0].ACF.about_me_image.url)
-      const apiData = response.data[0].ACF
+    
+    const apiData = data[0].ACF
 
+    interface setPageState {
+      introImg:string,
+      introText:string,
+      // Add more typesafty later
+      
+    }
 
-
-      interface pageState{
-        introImg:string,
-        introText:string,
-        hireTitle:string,
-        hireText:string
-      }
-
-      setPageState({
+      setPageState:setPageState({
         introImg:apiData.about_me_image.url,
         introText:apiData.about_me,
         hireTitle:apiData.hire_title,
@@ -92,19 +90,17 @@ export default function Home() {
       }
       })
 
-    }).catch(function (error) {
-      console.error(error);
-    });
+
   } ,[])
 
   
-  useEffect(() => { 
-    axios.request(portfolioOptions).then(function (response) {
-      const apiData = response.data
-      console.log(apiData)
+  // useEffect(() => { 
+  //   axios.request(portfolioOptions).then(function (response) {
+  //     const apiData = response.data
+  //     console.log(apiData)
 
-    })
-  },[])
+  //   })
+  // },[])
 
 
 
