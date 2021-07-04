@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -34,16 +34,6 @@ fallback:false
 
 
 
-// export async function getStaticProps(context){
-// const id = context.params.id
-// const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`)
-// const data = await res.json()
-// console.log(id)
-// return {
-// props: {item: data[id].ACF}
-// }
-// }
-
 export async function getStaticProps(context) {
     const id = context.params.id
     const [item, gallery] = await Promise.all([
@@ -60,16 +50,17 @@ export async function getStaticProps(context) {
 
   };
 
-  const screenshotArray:string[] = []
-  const techIcons:string[] = []
+const screenshotArray:string[] =[];
+const techIcons:string[] = [];
+const techIconLinks:string[] = [];
+
 
 function getGalleryImages(gallery:string[],type,techIcons:boolean,pageTitle:boolean){
 
-    console.log(gallery)
+    if(pageTitle){
+    gallery.forEach((element,index) => {
 
-    gallery.forEach(element => {
-
-        if(pageTitle){
+       
             if(element.title.rendered == type.title){
     
                 element.gallery_data.gallery.forEach(i =>{
@@ -77,26 +68,39 @@ function getGalleryImages(gallery:string[],type,techIcons:boolean,pageTitle:bool
                     
                 })
             }
-        }
-
-        if(techIcons){
-           
-
-            type.forEach(element => {
-                gallery.forEach((imagedata) =>{
-
-                    if(imagedata.title.rendered == 'Tech Icons'){
-                        console.log(imagedata.gallery_data.gallery)
-                    }
-                    
-                })
-                
-            });
-            
-        }
-        
-        
+       
     });
+}
+
+    if(techIcons){
+       
+
+        // Retrieves current icons from comparing against icon array from api against Tech Icons gallery
+        gallery.forEach(e =>{
+            if(e.title.rendered == 'Tech Icons'){
+                // console.log(e.gallery_data.gallery)
+                e.gallery_data.gallery.forEach( j =>{
+                    
+
+                    type.forEach((icons, index)=> {
+                        if(j.title == icons ){
+                           
+                            techIconLinks.push(j)
+                        }
+                    });
+
+                })
+            }
+        })
+
+
+        
+
+        
+        
+        
+    }
+    
     
 }
 
@@ -108,12 +112,19 @@ export default function Item({item,gallery}) {
     const technologyArray:string[] = item.technologies.split(" ")
 
     const [screenShotData,setScreenShotData] = useState([])
+    const [iconsData,setIconData] = useState([])
 
+
+
+    
+
+    
+
+useEffect(() =>{
     getGalleryImages(gallery,item,false,true)
-
+    setIconData([...iconsData,techIconLinks])
     getGalleryImages(gallery,technologyArray,true,false)
-
-
+},[])
     
 
     
@@ -147,7 +158,7 @@ return (
                 <h2>Technology</h2>
 
 
-                <Technologies />
+                <Technologies iconLinks={techIconLinks}/>
 
 
 

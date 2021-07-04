@@ -94,13 +94,6 @@ export default function Home({data}) {
   } ,[])
 
   
-  // useEffect(() => { 
-  //   axios.request(portfolioOptions).then(function (response) {
-  //     const apiData = response.data
-  //     console.log(apiData)
-
-  //   })
-  // },[])
 
 
 
