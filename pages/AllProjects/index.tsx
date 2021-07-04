@@ -37,7 +37,6 @@ export async function getStaticProps(context) {
 
                             {
                                 data.map((e,index) => {
-                                    console.log(e.ACF)
                                    return <Col key={index} md={4} className="mb-1">
                                 <Link  href={'./AllProjects/' + index}>
                                     <Card className="bg-dark text-white">

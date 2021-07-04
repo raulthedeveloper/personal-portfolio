@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -17,7 +17,8 @@ export async function getStaticPaths() {
 const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`)
 const data = await res.json()
 
-console.log(data)
+
+
 const paths = data.map((item,index) =>{
 return {
 params:{id:index.toString()}
@@ -33,19 +34,93 @@ fallback:false
 
 
 
-export async function getStaticProps(context){
-const id = context.params.id
-const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`)
-const data = await res.json()
-console.log(id)
-return {
-props: {item: data[id].ACF}
-}
+// export async function getStaticProps(context){
+// const id = context.params.id
+// const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`)
+// const data = await res.json()
+// console.log(id)
+// return {
+// props: {item: data[id].ACF}
+// }
+// }
+
+export async function getStaticProps(context) {
+    const id = context.params.id
+    const [item, gallery] = await Promise.all([
+        fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`).then(r => r.json()),
+        fetch(`http://portfoliobackend.local/wp-json/wp/v2/envira-gallery`).then(r => r.json())
+      ]);
+    
+      return {
+        props: {
+                item:item[id].ACF,
+                gallery:gallery
+        }
+        }
+
+  };
+
+  const screenshotArray:string[] = []
+  const techIcons:string[] = []
+
+function getGalleryImages(gallery:string[],type,techIcons:boolean,pageTitle:boolean){
+
+    console.log(gallery)
+
+    gallery.forEach(element => {
+
+        if(pageTitle){
+            if(element.title.rendered == type.title){
+    
+                element.gallery_data.gallery.forEach(i =>{
+                    screenshotArray.push(i)
+                    
+                })
+            }
+        }
+
+        if(techIcons){
+           
+
+            type.forEach(element => {
+                gallery.forEach((imagedata) =>{
+
+                    if(imagedata.title.rendered == 'Tech Icons'){
+                        console.log(imagedata.gallery_data.gallery)
+                    }
+                    
+                })
+                
+            });
+            
+        }
+        
+        
+    });
+    
 }
 
 
-export default function Item({item}) {
-    let screenshots:string[] = [item.screen_shot_1,item.screen_shot_2,item.screen_shot_3]
+
+
+export default function Item({item,gallery}) {
+
+    const technologyArray:string[] = item.technologies.split(" ")
+
+    const [screenShotData,setScreenShotData] = useState([])
+
+    getGalleryImages(gallery,item,false,true)
+
+    getGalleryImages(gallery,technologyArray,true,false)
+
+
+    
+
+    
+
+
+
+
 
 return (
 <div>
@@ -54,8 +129,8 @@ return (
             <Container className="project-hero-container" fluid>
                 <Row>
                     {/*
-                    <Image style={{"width":"100%"}} src={item.screen_shot_1.url} alt="" /> */}
-                    <div className="jumbotron" style={{"backgroundImage":"url('https://i.pinimg.com/originals/5f/ee/8e/5fee8e4a9fea271529cfd8828dd990d5.gif')"}}>
+                    <Image style={{"width":"100%"}} src={props.item.screen_shot_1.url} alt="" /> */}
+                    <div className="jumbotron" style={{"backgroundImage":`url(${item.project_gif.url})`}}>
 
                         <div className="see-site">
                         <h1 className="display-4 text-center">{item.title}</h1>
@@ -70,11 +145,13 @@ return (
 
                 </Row>
                 <h2>Technology</h2>
+
+
                 <Technologies />
 
 
 
-                <Screenshots images={screenshots} />
+                <Screenshots images={screenshotArray} />
 
                 <Row>
 

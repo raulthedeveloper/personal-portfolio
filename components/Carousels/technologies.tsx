@@ -8,7 +8,7 @@ import { Card } from 'react-bootstrap';
 
 
 
-export default function Carousel_2() {
+export default function technologies() {
   const settings = {
     dots: true,
     infinite: true,
@@ -25,7 +25,7 @@ export default function Carousel_2() {
       <Card style={{"border":"none"}}>
                         <Card.Body>
                             <Card.Header style={{'border':"none"}}>
-                                <h5 className="text-center">React</h5>
+                                <a href="https://reactjs.org/"><h5 className="text-center">React</h5></a>
                             </Card.Header>
                             <Image style={{"width":"100px","margin":"auto","display":"block"}}
                                 src="../../images/nuxt-logo.png" />
@@ -36,7 +36,7 @@ export default function Carousel_2() {
                     <Card style={{"border":"none"}}>
                         <Card.Body>
                             <Card.Header style={{'border':"none"}}>
-                                <h5 className="text-center">React</h5>
+                                <a href="https://reactjs.org/"><h5 className="text-center">React</h5></a>
                             </Card.Header>
                             <Image style={{"width":"100px","margin":"auto","display":"block"}}
                                 src="../../images/nuxt-logo.png" />
@@ -47,7 +47,7 @@ export default function Carousel_2() {
                     <Card style={{"border":"none"}}>
                         <Card.Body>
                             <Card.Header style={{'border':"none"}}>
-                                <h5 className="text-center">React</h5>
+                                <a href="https://reactjs.org/"><h5 className="text-center">React</h5></a>
                             </Card.Header>
                             <Image style={{"width":"100px","margin":"auto","display":"block"}}
                                 src="../../images/nuxt-logo.png" />
@@ -58,7 +58,7 @@ export default function Carousel_2() {
                     <Card style={{"border":"none"}}>
                         <Card.Body>
                             <Card.Header style={{'border':"none"}}>
-                                <h5 className="text-center">React</h5>
+                                <a href="https://reactjs.org/"><h5 className="text-center">React</h5></a>
                             </Card.Header>
                             <Image style={{"width":"100px","margin":"auto","display":"block"}}
                                 src="../../images/nuxt-logo.png" />
@@ -69,7 +69,7 @@ export default function Carousel_2() {
                     <Card style={{"border":"none"}}>
                         <Card.Body>
                             <Card.Header style={{'border':"none"}}>
-                                <h5 className="text-center">React</h5>
+                                <a href="https://reactjs.org/"><h5 className="text-center">React</h5></a>
                             </Card.Header>
                             <Image style={{"width":"100px","margin":"auto","display":"block"}}
                                 src="../../images/nuxt-logo.png" />

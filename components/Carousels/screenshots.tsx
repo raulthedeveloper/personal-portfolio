@@ -7,7 +7,7 @@ import { Image } from 'react-bootstrap';
 
 
 
-export default function Carousel_1({images}) {
+export default function Screenshots({images}) {
   const settings = {
     dots: true,
     infinite: true,
@@ -22,9 +22,9 @@ export default function Carousel_1({images}) {
       <Slider {...settings}>
       {     
             images.map((e,index)=>{
-              return <div>
-              <Image key={index} fluid style={{'width':'95%','margin':'auto','height':'400px'}}
-              src={e.url} />
+              return <div >
+              <Image key={index + e.name} fluid style={{'width':'95%','margin':'auto','height':'400px'}}
+              src={e.src} />
               </div>
             })
           }
