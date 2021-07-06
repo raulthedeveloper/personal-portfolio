@@ -6,26 +6,29 @@ import { Image } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 
 
+interface Props {
+    iconsLinks:string
+}
 
-
-export default function technologies({iconLinks}) {
+ const technologies:React.FC<Props> = ({iconLinks}) =>{
+     
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: iconLinks.length,
+    slidesToShow: iconLinks.length < 3 ? iconLinks.length : 3 ,
     slidesToScroll: 3
   };
 
 
   return (
-    <div>
-      <Slider {...settings}>
+    <div className="d-flex justify-content-center">
+      <Slider {...settings} >
           {
               
               iconLinks.map(link =>{
                   
-                  return <Card style={{"border":"none","backgroundColor":"#fff0"}}>
+                  return <Card className="bg-dark">
                   <Card.Body>
                       <Card.Header style={{'border':"none"}}>
                           <a href="https://reactjs.org/"><h5 className="text-center">{link.title}</h5></a>
@@ -48,3 +51,4 @@ export default function technologies({iconLinks}) {
   );
 }
 
+export default technologies

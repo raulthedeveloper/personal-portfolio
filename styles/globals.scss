@@ -108,3 +108,33 @@ input, textarea{
 }
 
 
+.slick-slider{
+  width: 100%;
+
+}
+
+.card{
+  border: none;
+
+  &-header{
+    background: none;
+    color: white;
+  }
+}
+
+section{
+  margin: {
+    top: 3rem;
+    bottom: 3rem;
+  }
+
+}
+
+.dark-section{
+  background: #212529;
+  padding: 5rem 1rem;
+}
+
+nav{
+  background-color:#23272b
+}

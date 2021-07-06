@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/Projects.module.scss'
+import styles from '../../styles/Projects.module.scss'
 import { Container,Row,Col,Image } from 'react-bootstrap'
 import Link from 'next/link'
 

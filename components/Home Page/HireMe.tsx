@@ -3,7 +3,7 @@ import { Container,Form, Col, Row, Button } from 'react-bootstrap'
 
 export default function HireMe({text,title}) {
     return (
-        <div>
+        <section>
             <Container>
                 <Row>
                     <Col md={6}>
@@ -42,6 +42,6 @@ export default function HireMe({text,title}) {
                 </Row>
             </Container>
             
-        </div>
+            </section>
     )
 }

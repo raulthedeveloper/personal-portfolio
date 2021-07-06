@@ -17,8 +17,8 @@ export default function Screenshots({images}) {
   };
 
   return (
-    <div className="mt-5 mb-5">
-      <h2> Screen Shots </h2>
+    <div className="mt-5 mb-5 d-flex justify-content-center">
+      
       <Slider {...settings}>
       {     
             images.map((e,index)=>{

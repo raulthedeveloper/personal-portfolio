@@ -1,5 +1,6 @@
 import React from 'react'
-import {Container,Row,Col,Image} from 'react-bootstrap'
+import {Container,Row,Col,Image,Button} from 'react-bootstrap'
+import Link from 'next/link'
 
 type Props ={
   image:string,
@@ -18,6 +19,7 @@ export default function Introduction({image,text}:Props) {
              <Col md={8} sm={12}> 
              <h1>Lorem ipsum</h1>
              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident praesentium iure temporibus dolor delectus cumque. Placeat adipisci dignissimos error a quisquam maiores suscipit, odio ratione vero, nisi, blanditiis asperiores id.</p>
+             <Link href="/about">Read More</Link>
              </Col>
           }
           

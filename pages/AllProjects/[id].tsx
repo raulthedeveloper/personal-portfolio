@@ -1,6 +1,4 @@
 import React, {useState,useEffect} from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 import { Container,Row,Image,Col,Card,ListGroup } from 'react-bootstrap'
 // import Image from 'next/image'
@@ -8,6 +6,7 @@ import Layout from '../../components/layouts/Layout'
 import Screenshots from '../../components/Carousels/screenshots';
 import Technologies from '../../components/Carousels/technologies';
 
+import  GitHubCta  from '../../components/GitHubCta'
 
 
 
@@ -35,7 +34,12 @@ fallback:false
 
 
 export async function getStaticProps(context) {
-    const id = context.params.id
+    interface galleryProp {
+        item:string,
+        gallery:string[]
+    }
+
+    const id:string = context.params.id
     const [item, gallery] = await Promise.all([
         fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`).then(r => r.json()),
         fetch(`http://portfoliobackend.local/wp-json/wp/v2/envira-gallery`).then(r => r.json())
@@ -51,14 +55,13 @@ export async function getStaticProps(context) {
   };
 
 const screenshotArray:string[] =[];
-const techIcons:string[] = [];
 const techIconLinks:string[] = [];
 
 
 function getGalleryImages(gallery:string[],type,techIcons:boolean,pageTitle:boolean){
 
     if(pageTitle){
-    gallery.forEach((element,index) => {
+    gallery.forEach((element:any,index:number) => {
 
        
             if(element.title.rendered == type.title){
@@ -155,18 +158,25 @@ return (
                     </div>
 
                 </Row>
-                <h2>Technology</h2>
+                </Container>
+               
+                </section>
+
+                
+                <Container>
+                <h2>Technologies</h2>
 
 
                 <Technologies iconLinks={techIconLinks}/>
 
 
-
+                <h2> Screen Shots </h2>
                 <Screenshots images={screenshotArray} />
-
+                <section>
                 <Row>
 
                     <Col>
+                    <h2>Features</h2>
                     <ListGroup>
                         <ListGroup.Item disabled>Cras justo odio</ListGroup.Item>
                         <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
@@ -180,10 +190,12 @@ return (
                     <div dangerouslySetInnerHTML={{__html:item.description}} />
                     </Col>
                 </Row>
+                </section>
             </Container>
-        </section>
+        
 
-
+                    <GitHubCta />
+            
 
     </Layout>
 

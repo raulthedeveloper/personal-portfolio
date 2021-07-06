@@ -1,11 +1,11 @@
 import React from 'react'
-import style from '../styles/Technical.module.scss'
-import { Container,Row,Col } from 'react-bootstrap'
-import Image from 'next/image'
+import { Container,Row,Image,Col } from 'react-bootstrap'
+// import Image from 'next/image'
 
 
-export default function TechInfoSlide({toggleSlide,slideImg,slideText}) {
+export default function TechInfoSlide({toggleSlide,slideImg,slideText,slideContent}) {
     return (
+        <section>
         <Container >
                      
 
@@ -25,5 +25,6 @@ export default function TechInfoSlide({toggleSlide,slideImg,slideText}) {
 
             </Row>
         </Container>
+        </section>
     )
 }

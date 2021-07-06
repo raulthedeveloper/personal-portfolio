@@ -1,9 +1,8 @@
 import React,{ useState,useEffect } from 'react'
 import Layout from '../../components/layouts/Layout'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import styles from '../../styles/Projects.module.scss'
 import Link from 'next/link'
 import { Container, Row, Col, Card } from 'react-bootstrap'
+import GitHubCta  from '../../components/GitHubCta'
 
 
 export async function getStaticProps(context) {
@@ -22,17 +21,14 @@ export async function getStaticProps(context) {
   }
 
 
-
-
-
             export default function AllProjects({data}) {
 
 
             return (
-            <div>
+            <div >
                 <Layout>
                     <h2 className="mt-3">Hey Im the projects page</h2>
-                    <Container>
+                    <Container style={{"height":"100vh"}}>
                         <Row>
 
                             {
@@ -54,11 +50,10 @@ export async function getStaticProps(context) {
                             }
 
                             
-
-
-
                         </Row>
                     </Container>
+
+                    <GitHubCta />
                 </Layout>
 
             </div>
