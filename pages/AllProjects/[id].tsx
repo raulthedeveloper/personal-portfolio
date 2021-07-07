@@ -140,7 +140,7 @@ return (
 <div>
     <Layout>
         <section className="project-hero">
-            <Container className="project-hero-container" fluid>
+            <Container fluid className="project-hero-container">
                 <Row>
                     {/*
                     <Image style={{"width":"100%"}} src={props.item.screen_shot_1.url} alt="" /> */}
@@ -163,7 +163,7 @@ return (
                 </section>
 
                 
-                <Container>
+                <Container fluid style={{"width":"90%"}}>
                 <h2>Technologies</h2>
 
 

@@ -19,7 +19,7 @@ export default function Introduction({image,text}:Props) {
              <Col md={8} sm={12}> 
              <h1>Lorem ipsum</h1>
              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident praesentium iure temporibus dolor delectus cumque. Placeat adipisci dignissimos error a quisquam maiores suscipit, odio ratione vero, nisi, blanditiis asperiores id.</p>
-             <Link href="/about">Read More</Link>
+             <Button varient="success" className="m-2" href="/about">Read More</Button> 
              </Col>
           }
           

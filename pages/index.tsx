@@ -11,27 +11,12 @@ import { useState,useEffect } from 'react'
 
 
 
-// export async function getStaticProps(context) {
-//   const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio`)
-//   const data = await res.json()
-
-//   if (!data) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: { data }, // will be passed to the page component as props
-//   }
-// }
-
-
 export async function getStaticProps(context) {
   
 
   const [data,tech] = await Promise.all([
-      fetch(`http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio`).then(r => r.json()),
+      fetch(`http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio
+      `).then(r => r.json()),
       fetch(`http://portfoliobackend.local/wp-json/wp/v2/tech_skills/`).then(r => r.json())
     ]);
   
@@ -48,32 +33,28 @@ export async function getStaticProps(context) {
 
 
 
-// http://portfoliobackend.local/wp-json/wp/v2/tech_skills/
-
 
 
 export default function Home({data,tech}) {
   let [showSlide, setShowSlide ] = useState(false)
   let [ slideImg, setSlideImg ] = useState(String)
-  let [ slideText, setSlideText ] = useState(String)
+  let [ slideTitle, setSlideTitle ] = useState(String)
+  let [ slideContent, setSlideContent ] = useState(String)
 
-  let [pageState, setPageState] = useState({
-    
-  })
+  let [pageState, setPageState] = useState(Object)
 
 
 
   useEffect(() => {
-    console.log(tech)
     const apiData = data[0].ACF
-
+    console.log(apiData)
     
 
       setPageState:setPageState({
         introImg:apiData.about_me_image.url,
-        introText:apiData.about_me,
+        introtitle:apiData.about_me,
         hireTitle:apiData.hire_title,
-        hireText:apiData.hire_me,
+        hiretitle:apiData.hire_me,
         techExperience:{
         react:{
           experience:apiData.react_experience
@@ -109,11 +90,11 @@ export default function Home({data,tech}) {
 
 
 
-  function toggleSlide(bool:boolean,logo:string,text:string):void{
-    console.log('The slide is working')
+  function toggleSlide(bool:boolean,logo:string,title:string,content:string):void{
     setShowSlide(bool)
     setSlideImg(logo)
-    setSlideText(text)
+    setSlideTitle(title)
+    setSlideContent(content)
 
   }
 
@@ -125,10 +106,10 @@ export default function Home({data,tech}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Layout>
-      <Introduction image={pageState.introImg} text={pageState.introText}></Introduction>
+      <Introduction image={pageState.introImg} text={pageState.introtitle}></Introduction>
 
       {
-        showSlide ? <TechInfoSlide toggleSlide={toggleSlide} slideImg={slideImg} slideText={slideText}/> : <Technical techData={tech} toggleSlide={toggleSlide} />
+        showSlide ? <TechInfoSlide toggleSlide={toggleSlide} slideImg={slideImg} slideTitle={slideTitle} slideContent={slideContent}/> : <Technical techData={tech} toggleSlide={toggleSlide} />
       }
       
    
@@ -141,7 +122,7 @@ export default function Home({data,tech}) {
 
       
      
-      <HireMe title={pageState.hireTitle} text={pageState.hireText}></HireMe>
+      <HireMe title={pageState.hireTitle} title={pageState.hiretitle}></HireMe>
      
      
     </Layout>
@@ -208,9 +189,9 @@ interface techExperience {
 interface setPageState {
   obj:{
     introImg:string,
-    introText:string
+    introtitle:string
     hireTitle:string,
-    hireText:string,
+    hiretitle:string,
     techExperience:techExperience
   }
   // Add more typesafty later

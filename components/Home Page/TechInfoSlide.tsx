@@ -1,9 +1,9 @@
 import React from 'react'
-import { Container,Row,Image,Col } from 'react-bootstrap'
+import { Container,Row,Image,Col, Button } from 'react-bootstrap'
 // import Image from 'next/image'
 
 
-export default function TechInfoSlide({toggleSlide,slideImg,slideText,slideContent}) {
+export default function TechInfoSlide({toggleSlide,slideImg,slideTitle,slideContent}) {
     return (
         <section>
         <Container >
@@ -18,11 +18,15 @@ export default function TechInfoSlide({toggleSlide,slideImg,slideText,slideConte
       />
             </Row>
             <Row style={{'padding':'3rem'}}>
-            <p>{slideText}</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eligendi ut sunt. Architecto, voluptatem nam? Iure nisi atque, voluptas exercitationem nostrum cum quos, harum quia fugiat corrupti repellat quis quas.</p>
+            <h2 className="text-center border-bottom border-light">{slideTitle}</h2>
+            <div dangerouslySetInnerHTML={{__html:slideContent}}  />
 
             <button style={{"width":"5rem"}} onClick={()=>toggleSlide(false)}>Back</button>
 
+            </Row>
+            <Row>
+                {/* Projects with technology will generate buttons/links to projects
+            <Button varient="success" className="m-2" href="/about">Restaurant</Button>  */}
             </Row>
         </Container>
         </section>

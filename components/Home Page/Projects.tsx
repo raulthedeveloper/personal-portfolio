@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../../styles/Projects.module.scss'
-import { Container,Row,Col,Image } from 'react-bootstrap'
+import { Container,Row,Col,Image, Button } from 'react-bootstrap'
 import Link from 'next/link'
 
 
@@ -27,7 +27,11 @@ export default function Projects() {
                     </a>
                     </Link>
                 </Col>
-                <Link href="/AllProjects">See More</Link>
+
+            </Row>
+            <Row className="mt-3">
+            <Button varient="success" className="m-auto" href="/AllProjects">See More</Button> 
+
             </Row>
         </section>
     </Container>
