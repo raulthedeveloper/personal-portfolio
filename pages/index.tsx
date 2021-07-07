@@ -4,8 +4,9 @@ import Introduction from '../components/Home Page/Introduction'
 import Technical from '../components/Technical'
 import Projects from '../components/Home Page/Projects'
 import HireMe from '../components/Home Page/HireMe'
-import Reviews from '../components/Home Page/Reviews'
 import TechInfoSlide from '../components/Home Page/TechInfoSlide'
+import Testimonial from '../components/Carousels/Testimonial'
+
 
 import { useState,useEffect } from 'react'
 
@@ -14,17 +15,19 @@ import { useState,useEffect } from 'react'
 export async function getStaticProps(context) {
   
 
-  const [data,tech] = await Promise.all([
+  const [data,tech,testimonialData] = await Promise.all([
       fetch(`http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio
       `).then(r => r.json()),
-      fetch(`http://portfoliobackend.local/wp-json/wp/v2/tech_skills/`).then(r => r.json())
+      fetch(`http://portfoliobackend.local/wp-json/wp/v2/tech_skills/`).then(r => r.json()),
+      fetch(`http://portfoliobackend.local/wp-json/wp/v2/testimonials/`).then(r => r.json())
     ]);
   
 
     return {
       props: {
-              data:data,
-              tech:tech,
+              data,
+              tech,
+              testimonialData
               
       }
       }
@@ -35,7 +38,8 @@ export async function getStaticProps(context) {
 
 
 
-export default function Home({data,tech}) {
+export default function Home({data,tech,testimonialData}) {
+
   let [showSlide, setShowSlide ] = useState(false)
   let [ slideImg, setSlideImg ] = useState(String)
   let [ slideTitle, setSlideTitle ] = useState(String)
@@ -47,40 +51,13 @@ export default function Home({data,tech}) {
 
   useEffect(() => {
     const apiData = data[0].ACF
-    console.log(apiData)
-    
+
 
       setPageState:setPageState({
         introImg:apiData.about_me_image.url,
         introtitle:apiData.about_me,
         hireTitle:apiData.hire_title,
-        hiretitle:apiData.hire_me,
-        techExperience:{
-        react:{
-          experience:apiData.react_experience
-        },
-        swift:{
-          experience:apiData.swift_experience
-        },
-        php:{
-          experience:apiData.php_experience
-        },
-        sass:{
-          experience:apiData.sass_experience
-        },
-        next:{
-          experience:apiData.next_experience
-        },
-        vue:{
-          experience:apiData.vue_experience
-        },
-        wordpress:{
-          experience:apiData.wordpress_experience
-        },
-        nuxt:{
-          experience:apiData.nuxt_experience
-        }
-      }
+        hiretitle:apiData.hire_me
       })
 
 
@@ -117,12 +94,12 @@ export default function Home({data,tech}) {
    
      
     
-     <Reviews></Reviews>
+     <Testimonial data={testimonialData}/>
     
 
       
      
-      <HireMe title={pageState.hireTitle} title={pageState.hiretitle}></HireMe>
+      <HireMe title={pageState.hireTitle} text={pageState.hiretitle}></HireMe>
      
      
     </Layout>

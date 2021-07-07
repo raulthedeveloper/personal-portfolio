@@ -11,13 +11,7 @@ export default function HireMe({text,title}) {
                         <p>{text}</p>
                     </Col>
                     <Col md={6}>
-                        {/* <form>
-                            <input type="text" />
-                            <input type="email" />
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
-                            <input type="submit" value="submit" />
-                        </form> */}
-
+                      
 <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
