@@ -8,8 +8,8 @@ export default function Projects() {
     return (
         <Container>
         <section id="projects">
-            <h2>Projects</h2>
-            <Row>
+            <h2 className="section-header">Projects</h2>
+            <Row >
                 
                 <Col md={7}>
                <Link href="/AllProjects"><a>

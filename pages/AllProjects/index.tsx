@@ -27,15 +27,16 @@ export async function getStaticProps(context) {
             return (
             <div >
                 <Layout>
-                    <h2 className="mt-3">Hey Im the projects page</h2>
-                    <Container style={{"height":"100vh"}}>
-                        <Row>
+                    
+                    <Container style={{"marginTop":"5rem","marginBottom":"5rem"}}>
+                    <h2 className="mt-3 section-header">Projects</h2>
+                        <Row style={{"marginTop":"3rem"}}>
 
                             {
                                 data.map((e,index) => {
                                    return <Col key={index} md={4} className="mb-1">
                                 <Link  href={'./AllProjects/' + index}>
-                                    <Card className="bg-dark text-white">
+                                    <Card className="bg-dark text-white project-thumbnail">
                                         <Card.Img
                                             src={e.ACF.screen_shot_1.url}
                                             alt="Card image" />
@@ -53,7 +54,7 @@ export async function getStaticProps(context) {
                         </Row>
                     </Container>
 
-                    <GitHubCta />
+                    <GitHubCta dark={true}/>
                 </Layout>
 
             </div>

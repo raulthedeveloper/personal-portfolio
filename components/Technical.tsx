@@ -10,11 +10,11 @@ export default function Technical({toggleSlide,techData}) {
 
 
 return (
-  <section>
+  <section className="dark-section">
 
  
 <Container >
-  <h2>Technical</h2>
+  <h2 className="section-header">Technical</h2>
   
 
     <div className="row" style={{"marginBottom":"1.2rem","justifyContent":"space-between"}}>

@@ -23,7 +23,11 @@ const settings = {
 
 const Testimonial = ({data}) => {
     return (
+      <section className="dark-section">
+
+      
         <Container>
+          <h2 className="section-header">Testimonial</h2>
         <div>
             <Slider {...settings} >
 
@@ -54,6 +58,7 @@ const Testimonial = ({data}) => {
       </Slider>
         </div>
         </Container>
+        </section>
     )
 }
 

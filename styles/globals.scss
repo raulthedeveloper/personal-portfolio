@@ -1,12 +1,48 @@
 @use './modules/project-hero.scss';
 
 
+$secondary-color: #23272b;
 
 h2{
   font-size: 3rem;
   font-weight: 300;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
+  
+}
+
+.project-thumbnail{
+  cursor: pointer;
+  height: 270px;
+  margin-bottom: 2rem;
+  & .card-img{
+    height: 100%;
+  }
+
+  &:hover{
+    border: solid orange 1px;
+  }
+}
+
+.section-header{
+  color: orange;
+  letter-spacing: 6px;
+}
+
+.dark-section{
+  background-color: $secondary-color;
+}
+
+
+
+.card-img-overlay:hover{
+  background: orange;
+  opacity: .2;
+
+}
+
+.card-title:hover{
+  color: black;
 }
 
 h1,h2,h3,h4,ul,p{

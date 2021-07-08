@@ -114,7 +114,6 @@ export default function Item({item,gallery}) {
 
     const technologyArray:string[] = item.technologies.split(" ")
 
-    const [screenShotData,setScreenShotData] = useState([])
     const [iconsData,setIconData] = useState([])
 
 
@@ -142,8 +141,7 @@ return (
         <section className="project-hero">
             <Container fluid className="project-hero-container">
                 <Row>
-                    {/*
-                    <Image style={{"width":"100%"}} src={props.item.screen_shot_1.url} alt="" /> */}
+                    
                     <div className="jumbotron" style={{"backgroundImage":`url(${item.project_gif.url})`}}>
 
                         <div className="see-site">
@@ -194,7 +192,7 @@ return (
             </Container>
         
 
-                    <GitHubCta />
+                    <GitHubCta dark={true}/>
             
 
     </Layout>

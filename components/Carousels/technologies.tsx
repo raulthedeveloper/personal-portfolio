@@ -25,9 +25,9 @@ interface Props {
       <Slider {...settings} >
           {
               
-              iconLinks.map(link =>{
+              iconLinks.map((link,index) =>{
                   
-                  return <Card className="bg-dark">
+                  return <Card key={index + link} className="bg-dark">
                   <Card.Body>
                       <Card.Header style={{'border':"none"}}>
                           <a href="https://reactjs.org/"><h5 className="text-center">{link.title}</h5></a>

@@ -54,10 +54,9 @@ export default function Home({data,tech,testimonialData}) {
 
 
       setPageState:setPageState({
-        introImg:apiData.about_me_image.url,
+        introImg:apiData.about_me_image.sizes.medium,
         introtitle:apiData.about_me,
-        hireTitle:apiData.hire_title,
-        hiretitle:apiData.hire_me
+        hireContent:apiData.hire_me
       })
 
 
@@ -99,7 +98,7 @@ export default function Home({data,tech,testimonialData}) {
 
       
      
-      <HireMe title={pageState.hireTitle} text={pageState.hiretitle}></HireMe>
+      <HireMe  text={pageState.hireContent}></HireMe>
      
      
     </Layout>
@@ -167,8 +166,8 @@ interface setPageState {
   obj:{
     introImg:string,
     introtitle:string
-    hireTitle:string,
-    hiretitle:string,
+    hireContent:string,
+    hireContent:string,
     techExperience:techExperience
   }
   // Add more typesafty later
