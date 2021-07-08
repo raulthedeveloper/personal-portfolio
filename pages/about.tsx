@@ -11,8 +11,8 @@ export async function getStaticProps(context) {
   
 
     const [data] = await Promise.all([
-        fetch(`http://portfoliobackend.local/wp-json/wp/v2/personal_portfolio
-        `).then(r => r.json()),
+        fetch(process.env.NEXT_PUBLIC_PERSONAL_PORTFOLIO_API
+        ).then(r => r.json()),
         
       ]);
     

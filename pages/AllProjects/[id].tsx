@@ -138,7 +138,7 @@ useEffect(() =>{
 return (
 <div>
     <Layout>
-        <section className="project-hero">
+        <section className="project-hero mt-0">
             <Container fluid className="project-hero-container">
                 <Row>
                     
@@ -161,7 +161,7 @@ return (
                 </section>
 
                 
-                <Container fluid style={{"width":"90%"}}>
+                <Container>
                 <h2>Technologies</h2>
 
 

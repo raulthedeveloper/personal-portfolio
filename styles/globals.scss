@@ -3,6 +3,24 @@
 
 $secondary-color: #23272b;
 
+$ph-color:#343a40 !default;
+
+.ph-item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  padding: 30px 15px 15px;
+  overflow: hidden;
+  direction: ltr;
+  background-color: #343a40 ;
+  border:none ;
+  border-radius: 2px;
+}
+
+
+
+
 h2{
   font-size: 3rem;
   font-weight: 300;

@@ -6,7 +6,7 @@ import GitHubCta  from '../../components/GitHubCta'
 
 
 export async function getStaticProps(context) {
-    const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`)
+    const res = await fetch(process.env.NEXT_PUBLIC_ITEM_API)
     const data = await res.json()
   
     if (!data) {
