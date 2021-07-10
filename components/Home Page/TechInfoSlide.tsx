@@ -1,11 +1,10 @@
 import React from 'react'
 import { Container,Row,Image,Col, Button } from 'react-bootstrap'
-// import Image from 'next/image'
 
 
 export default function TechInfoSlide({toggleSlide,slideImg,slideTitle,slideContent}) {
     return (
-        <section>
+        <section className="dark-section">
         <Container >
                      
 
@@ -21,7 +20,7 @@ export default function TechInfoSlide({toggleSlide,slideImg,slideTitle,slideCont
             <h2 className="text-center border-bottom border-light">{slideTitle}</h2>
             <div dangerouslySetInnerHTML={{__html:slideContent}}  />
 
-            <button style={{"width":"5rem"}} onClick={()=>toggleSlide(false)}>Back</button>
+            <Button style={{"width":"5rem"}} onClick={()=>toggleSlide(false)}>Back</Button>
 
             </Row>
             <Row>

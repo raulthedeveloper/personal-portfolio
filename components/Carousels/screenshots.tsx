@@ -22,8 +22,8 @@ export default function Screenshots({images}) {
       <Slider {...settings}>
       {     
             images.map((e,index)=>{
-              return <div >
-              <Image key={index + e.name} fluid style={{'width':'95%','margin':'auto','height':'400px'}}
+              return <div key={index + e.name}>
+              <Image  fluid style={{'width':'95%','margin':'auto','height':'400px'}}
               src={e.src} />
               </div>
             })

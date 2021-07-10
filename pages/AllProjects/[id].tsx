@@ -13,14 +13,18 @@ import  GitHubCta  from '../../components/GitHubCta'
 
 
 export async function getStaticPaths() {
-const res = await fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`)
+const res = await fetch(process.env.NEXT_PUBLIC_ITEM_API)
 const data = await res.json()
 
 
 
 const paths = data.map((item,index) =>{
+    console.log(item['slug'])
 return {
-params:{id:index.toString()}
+params:{
+    id:index.toString(),
+    slug:item.slug
+}
 }
 })
 
@@ -39,16 +43,21 @@ export async function getStaticProps(context) {
         gallery:string[]
     }
 
+
     const id:string = context.params.id
-    const [item, gallery] = await Promise.all([
-        fetch(`http://portfoliobackend.local/wp-json/wp/v2/portfolio_item`).then(r => r.json()),
-        fetch(`http://portfoliobackend.local/wp-json/wp/v2/envira-gallery`).then(r => r.json())
-      ]);
     
+    const [item, gallery] = await Promise.all([
+        fetch(process.env.NEXT_PUBLIC_ITEM_API).then(r => r.json()),
+        fetch(process.env.NEXT_PUBLIC_GALLERY_API).then(r => r.json())
+      ]);
+      
+      console.log(item[id])
+
       return {
         props: {
                 item:item[id].ACF,
-                gallery:gallery
+                gallery:gallery,
+                
         }
         }
 

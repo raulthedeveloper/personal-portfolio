@@ -9,7 +9,7 @@ export default function Footer() {
         
             <footer className={styles.footer}>
                 <Container className="d-flex flex-column justify-content-center">
-                <span className="text-center section-header" style={{"fontSize":"2rem"}} >raulthedeveloper&copy;{currentYear}</span>
+                <span className="text-center section-header" style={{"fontSize":"4vw"}} >raulthedeveloper&copy;{currentYear}</span>
                
                 </Container>
                 

@@ -16,19 +16,30 @@ import { useState,useEffect } from 'react'
 
 export async function getStaticProps(context) {
 
-  const [data,tech,testimonialData] = await Promise.all([
+  const [data,tech,testimonialData,portfolioItems] = await Promise.all([
       fetch(process.env.NEXT_PUBLIC_PERSONAL_PORTFOLIO_API
       ).then(r => r.json()),
       fetch(process.env.NEXT_PUBLIC_TECH_SKILLS_API).then(r => r.json()),
-      fetch(process.env.NEXT_PUBLIC_TESTIMONIAL_API).then(r => r.json())
+      fetch(process.env.NEXT_PUBLIC_TESTIMONIAL_API).then(r => r.json()),
+      fetch(process.env.NEXT_PUBLIC_ITEM_API).then(r => r.json())
+
+
     ]);
+
+    
   
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
 
     return {
       props: {
               data,
               tech,
-              testimonialData
+              testimonialData,
+              portfolioItems
               
       }
       }
@@ -39,7 +50,7 @@ export async function getStaticProps(context) {
 
 
 
-export default function Home({data,tech,testimonialData}) {
+export default function Home({data,tech,testimonialData,portfolioItems}) {
 
   let [showSlide, setShowSlide ] = useState(false)
   let [ slideImg, setSlideImg ] = useState(String)
@@ -95,7 +106,7 @@ export default function Home({data,tech,testimonialData}) {
       }
       
    
-    <Projects></Projects>
+    <Projects recentProject={portfolioItems}></Projects>
    
      
     
