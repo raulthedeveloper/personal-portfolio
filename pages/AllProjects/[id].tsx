@@ -63,7 +63,7 @@ export async function getStaticProps(context) {
 
   };
 
-const screenshotArray:string[] =[];
+let screenshotArray:string[] =[];
 const techIconLinks:string[] = [];
 
 
@@ -74,7 +74,8 @@ function getGalleryImages(gallery:string[],type,techIcons:boolean,pageTitle:bool
 
        
             if(element.title.rendered == type.title){
-    
+                // Clears screenshotArray array
+                screenshotArray = []
                 element.gallery_data.gallery.forEach(i =>{
                     screenshotArray.push(i)
                     
@@ -151,14 +152,14 @@ return (
             <Container fluid className="project-hero-container">
                 <Row>
                     
-                    <div className="jumbotron" style={{"backgroundImage":`url(${item.project_gif.url})`}}>
+                    <div className="jumbotron" style={{"backgroundImage":`linear-gradient(90deg, rgba(0,0,0,0.6) 100%, rgba(2,2,15,1) 100%),url(${item.project_gif.url})`}}>
 
                         <div className="see-site">
                         <h1 className="display-4 text-center">{item.title}</h1>
                         <p className="lead text-center">This is a simple hero unit, a simple jumbotron-style component for calling
                             extra attention to featured content or information.</p>
                         <p className="lead">
-                            <a className="btn btn-primary btn-lg" href="#" role="button">Visit Site</a>
+                            <a target="__blank" className="btn btn-primary btn-lg" href={item.site_url} role="button">Visit Site</a>
                         </p>
                         </div>
                         
@@ -200,8 +201,10 @@ return (
                 </section>
             </Container>
         
-
-                    <GitHubCta dark={true}/>
+                    {
+                        item.github ? <GitHubCta dark={true} link={item.github}/> : null
+                    }
+                    
             
 
     </Layout>

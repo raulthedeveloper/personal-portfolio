@@ -17,7 +17,7 @@ const GitHubCta = ({dark, link, hasCode}) => {
                     <Col md={6} sm={12}>
                     <h3>Check Out The Code</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptate atque,</p>
-                    <Button varient="success" className="m-2" href="/about">See Code</Button> 
+                    <a className="btn btn-primary m-2"  target="__blank" href={link}>See Code</a> 
                     </Col>
                 </Row>
             </Container>
