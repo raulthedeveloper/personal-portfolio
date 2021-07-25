@@ -112,7 +112,7 @@ export default function Home({data,tech,testimonialData,portfolioItems}) {
     
      <Testimonial data={testimonialData}/>
     
-
+     
       
      
       <HireMe  text={pageState.hireContent}></HireMe>

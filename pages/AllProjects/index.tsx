@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
                         </Row>
                     </Container>
 
-                    <GitHubCta dark={true}/>
+                    <GitHubCta dark={true} link={"https://github.com/raulthedeveloper"}/>
                 </Layout>
 
             </div>

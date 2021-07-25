@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import { Container,Image, Card, Button } from 'react-bootstrap';
+import AppModal from '../AppModal';
 
 
 
@@ -35,15 +36,15 @@ const Testimonial = ({data}) => {
                   // Maps Through prop sent from Home page filled with wp api
                   data.map((e:object[],index:number) =>{
 
-                    return <Card key={index + e.title} style={{"backgroundColor":"green"}}>
+                    return <Card key={index + e.title} >
                     <Card.Body>
                         <Image width="100" className="m-auto rounded-circle" src={e.ACF.head_shot.sizes.thumbnail} />
                         <h2 className="text-dark text-center">{e.title.rendered}</h2>
                         <div className="testimonial-text" dangerouslySetInnerHTML={{__html:e.excerpt.rendered}} />
                         </Card.Body>
-                        {/* <Card.Footer className="d-flex">
-                            <Button className="m-auto">Read Full</Button>
-                        </Card.Footer> */}
+                        <Card.Footer className="d-flex">
+                            <AppModal />
+                        </Card.Footer>
                 </Card>
                   })
               }

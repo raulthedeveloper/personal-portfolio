@@ -5,7 +5,7 @@ import { Container,Row,Image,Col,Card,ListGroup } from 'react-bootstrap'
 import Layout from '../../components/layouts/Layout'
 import Screenshots from '../../components/Carousels/screenshots';
 import Technologies from '../../components/Carousels/technologies';
-
+import SingeTestimonial from '../../components/SingeTestimonial';
 import  GitHubCta  from '../../components/GitHubCta'
 
 
@@ -126,7 +126,7 @@ export default function Item({item,gallery}) {
 
     const [iconsData,setIconData] = useState([])
 
-
+    const [testimonialData, setTestimonialData] = useState({})
 
     
 
@@ -200,10 +200,16 @@ return (
                 </Row>
                 </section>
             </Container>
+
+                    {
+                        item.testimonial ? <SingeTestimonial divider={item.github ? true : false} data={[item.testimonial_headshot,item.testimonial_title,item.testimonial]}/> : null
+                    }
         
                     {
                         item.github ? <GitHubCta dark={true} link={item.github}/> : null
                     }
+
+                    
                     
             
 
