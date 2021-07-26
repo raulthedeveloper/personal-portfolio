@@ -14,7 +14,7 @@ const SingeTestimonial = ({data,divider}) => {
                         <div className="testimonial-text" dangerouslySetInnerHTML={{__html:data[2]}} />
                         </Card.Body>
                         <Card.Footer className="d-flex">
-                            <AppModal />
+                            <AppModal data={data} />
                         </Card.Footer>
                 </Card>
             </Container>

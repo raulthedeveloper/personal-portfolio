@@ -8,10 +8,6 @@ import AppModal from '../AppModal';
 
 
 
-// http://portfoliobackend.local/wp-json/wp/v2/testimonials
-
-
-
 
 
 const settings = {
@@ -43,7 +39,7 @@ const Testimonial = ({data}) => {
                         <div className="testimonial-text" dangerouslySetInnerHTML={{__html:e.excerpt.rendered}} />
                         </Card.Body>
                         <Card.Footer className="d-flex">
-                            <AppModal />
+                            <AppModal data={data}/>
                         </Card.Footer>
                 </Card>
                   })

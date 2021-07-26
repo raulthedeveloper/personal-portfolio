@@ -4,7 +4,17 @@
 $secondary-color: #23272b;
 
 
+.modal-p{
+  p{
+    color: black;
+  }
+}
 
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 
 h2{
