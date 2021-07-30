@@ -172,19 +172,24 @@ return (
 
                 
                 <Container>
-                <h2>Technologies</h2>
+                <h2 className="section-header">Technologies</h2>
 
 
                 <Technologies iconLinks={techIconLinks}/>
 
 
-                <h2> Screen Shots </h2>
+                <h2 className="section-header"> Screen Shots </h2>
                 <Screenshots images={screenshotArray} />
                 <section>
                 <Row>
-
-                    <Col>
-                    <h2>Features</h2>
+                <Col md={6} sm={12}>
+                    <h2 className="section-header">{item.title}</h2>
+                    {/* Add dangerously html */}
+                    <div dangerouslySetInnerHTML={{__html:item.description}} />
+                    </Col>
+                    
+                    <Col md={6} sm={12}>
+                    <h2 className="section-header">Features</h2>
                     <ListGroup>
                         <ListGroup.Item disabled>Cras justo odio</ListGroup.Item>
                         <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
@@ -192,11 +197,7 @@ return (
                         <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
                         </ListGroup>
                                             </Col>
-                    <Col>
-                    <h1>{item.title}</h1>
-                    {/* Add dangerously html */}
-                    <div dangerouslySetInnerHTML={{__html:item.description}} />
-                    </Col>
+                    
                 </Row>
                 </section>
             </Container>

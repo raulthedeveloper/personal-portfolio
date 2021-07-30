@@ -33,3 +33,14 @@
         display: block;
     }
 }
+
+
+@media only screen and (max-width: 747px){
+	.see-site{
+        width: 100%;
+    h1{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    }
+}

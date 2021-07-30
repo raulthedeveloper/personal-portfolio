@@ -16,7 +16,25 @@ interface Props {
     infinite: true,
     speed: 500,
     slidesToShow: iconLinks.length < 3 ? iconLinks.length : 3 ,
-    slidesToScroll: 3
+    slidesToScroll: 3,
+    responsive: [
+      
+      {
+        breakpoint: 747,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
 

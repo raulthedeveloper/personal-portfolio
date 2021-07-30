@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Modal, Button, Image } from 'react-bootstrap'
 
-const AppModal = ({data}) => {
+const AppModal = ({data,dataType}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
