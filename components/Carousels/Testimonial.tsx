@@ -35,7 +35,6 @@ const Testimonial = ({data, dataType}) => {
                     const handleClose = () => setShow(false);
                     const handleShow = () => setShow(true);
 
-                    console.log(e)
 
                     return <Card key={index + e.title} >
 

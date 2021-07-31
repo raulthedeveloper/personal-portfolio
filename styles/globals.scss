@@ -4,6 +4,17 @@
 $secondary-color: #23272b;
 
 
+.list-group-item {
+  background-color: #fff0;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #ffffff0d;
+}
+
+.hire-form{
+  background-color: #f8f9fa1a;
+}
+
 .modal-p{
   p{
     color: black;
@@ -210,6 +221,12 @@ nav{
   .div1 { grid-area: 1 / 1 / 5 / 4; }
   .div2 { grid-area: 1 / 4 / 3 / 6; }
   .div3 { grid-area: 3 / 4 / 5 / 6; }
+
+@media only screen and (max-width:450px){
+  .section-header{
+    font-size: 8vw;
+  }
+}
 
 
   @media only screen and (max-width: 600px){

@@ -19,7 +19,7 @@ export default function Projects({recentProject}) {
                                     <Card className="bg-dark text-white project-thumbnail h-100">
                                         <Card.Img
                                         
-                                            src={recentProject[0].ACF.screen_shot_1.sizes.medium}
+                                            src={recentProject[0].ACF.screen_shot_1.sizes.large}
                                             alt="Card image" />
                                         <Card.ImgOverlay>
                                             <Card.Title>{recentProject[0].ACF.title}</Card.Title>

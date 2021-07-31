@@ -138,9 +138,11 @@ useEffect(() =>{
     getGalleryImages(gallery,technologyArray,true,false)
 },[])
     
+    let features;
 
-    
-
+   if(item.features){
+     features = JSON.parse(item.features)
+   } 
 
 
 
@@ -190,12 +192,24 @@ return (
                     
                     <Col md={6} sm={12}>
                     <h2 className="section-header">Features</h2>
-                    <ListGroup>
-                        <ListGroup.Item disabled>Cras justo odio</ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                    
+                        <ListGroup>
+                            {
+                                
+                               features ? features.map((e,index) =>{
+                                    return <ListGroup.Item key={index + e}>{e}</ListGroup.Item>
+                                }) : 
+                                <ListGroup>
+                                <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                                </ListGroup>
+                                
+                            }
                         </ListGroup>
+                    
+                    
                                             </Col>
                     
                 </Row>

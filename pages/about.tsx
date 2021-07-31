@@ -30,8 +30,7 @@ export async function getStaticProps(context) {
 
 
 const about = ({data}) => {
-console.log(data)
-console.log(data[0].ACF)
+
 
     return (
         <div>

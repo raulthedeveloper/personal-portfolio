@@ -18,19 +18,18 @@ export default function HireMe({text,dark}) {
                     </Col>
                     <Col md={6}>
                                             
-                      <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <Form className="hire-form p-4 rounded">
+                        <Form.Group controlId="formBasicEmail">
                           <Form.Label>Email address</Form.Label>
                           <Form.Control type="email" placeholder="Enter email" />
-                          <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                          </Form.Text>
+                          
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                           <Form.Label>Password</Form.Label>
                           <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
+
                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Control as="textarea" rows={4} />
                         </Form.Group>
