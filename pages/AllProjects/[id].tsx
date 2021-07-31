@@ -158,8 +158,7 @@ return (
 
                         <div className="see-site">
                         <h1 className="display-4 text-center">{item.title}</h1>
-                        <p className="lead text-center">This is a simple hero unit, a simple jumbotron-style component for calling
-                            extra attention to featured content or information.</p>
+                        <p className="lead text-center">{item.headline}</p>
                         <p className="lead">
                             <a target="__blank" className="btn btn-primary btn-lg" href={item.site_url} role="button">Visit Site</a>
                         </p>

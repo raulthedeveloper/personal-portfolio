@@ -46,16 +46,20 @@ interface Props {
               iconLinks.map((link,index) =>{
                   
                   return <Card key={index + link} className="bg-dark">
+                    
                   <Card.Body>
                       <Card.Header style={{'border':"none"}}>
-                          <a href="https://reactjs.org/"><h5 className="text-center">{link.title}</h5></a>
+                      <a className="icon-link" target="__blank" href={link.link}>
+                          <h5 className="text-center">{link.title}</h5>
+                          </a>
                       </Card.Header>
-                      <Image style={{"width":"100px","margin":"auto","display":"block"}}
-                          src={link.src} />
-
+                      <a className="icon-link" target="__blank" href={link.link}>
+                      <Image style={{"height":"100px","margin":"auto","display":"block"}}
+                          src={link.src} alt={link.alt} />
+                      </a>
                   </Card.Body>
-
-              </Card>
+                  
+                  </Card>
               })
               
           }
