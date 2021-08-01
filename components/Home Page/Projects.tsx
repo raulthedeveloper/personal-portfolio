@@ -9,7 +9,7 @@ export default function Projects({recentProject}) {
         <Container>
         <section id="projects">
             <h2 className="section-header">Recent Projects</h2>
-            <Row >
+            <Row>
                 
                 
 

@@ -16,11 +16,11 @@ export default function TechInfoSlide({toggleSlide,slideImg,slideTitle,slideCont
         height={120}
       />
             </Row>
-            <Row style={{'padding':'3rem'}}>
+            <Row className="techslide-row">
             <h2 className="text-center section-header">{slideTitle}</h2>
             <div dangerouslySetInnerHTML={{__html:slideContent}}  />
 
-            <Button style={{"width":"5rem"}} onClick={()=>toggleSlide(false)}>Back</Button>
+            <Button  onClick={()=>toggleSlide(false)}>Back</Button>
 
             </Row>
             <Row>

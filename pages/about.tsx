@@ -30,7 +30,13 @@ export async function getStaticProps(context) {
 
 
 const about = ({data}) => {
+    let aspirations;
+    let hobbies;
 
+    if(data[0].ACF.hobbies && data[0].ACF.aspirations){
+        hobbies = JSON.parse(data[0].ACF.hobbies)
+        aspirations =  JSON.parse(data[0].ACF.aspirations)
+    } 
 
     return (
         <div>
@@ -43,11 +49,19 @@ const about = ({data}) => {
                         <Col>
                         <h2 className="section-header">Aspirations</h2>
                         <ListGroup>
-                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                            {
+                                
+                               aspirations ? aspirations.map((e,index) =>{
+                                    return <ListGroup.Item key={index + e}>{e}</ListGroup.Item>
+                                }) : 
+                                <ListGroup>
+                                <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                                </ListGroup>
+                                
+                            }
                         </ListGroup>
                         </Col>
 
@@ -55,18 +69,26 @@ const about = ({data}) => {
                         <h2 className="section-header">Interest/Hobbies</h2>
 
                         <ListGroup>
-                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+                            {
+                                
+                               hobbies ? hobbies.map((e,index) =>{
+                                    return <ListGroup.Item key={index + e}>{e}</ListGroup.Item>
+                                }) : 
+                                <ListGroup>
+                                <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+                                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+                                </ListGroup>
+                                
+                            }
                         </ListGroup>
                         </Col>
                     </Row>
                 </Container>
             </section>
 
-            <GitHubCta/>
+            <GitHubCta dark={false} link={"https://github.com/raulthedeveloper"}/>
                 
         <HireMe dark={true}/>
 

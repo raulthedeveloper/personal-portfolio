@@ -22,7 +22,7 @@ return (
       {
         
         techData.map((e:string[],index:number) =>{
-          return <Col key={index + e.title} md={3} onClick={()=>toggleSlide(true,e.ACF.logo.url,e.title.rendered,e.content.rendered)} className={styles.logoBox}>
+          return <Col key={index + e.title} md={3} sm={6} xs={6} onClick={()=>toggleSlide(true,e.ACF.logo.url,e.title.rendered,e.content.rendered)} className={styles.logoBox}>
           <Image src={e.ACF.logo.url} alt="react logo" width={120} height={120} />
           <p>{e.title.rendered}</p>
         </Col>

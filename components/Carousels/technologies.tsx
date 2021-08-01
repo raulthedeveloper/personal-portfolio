@@ -22,15 +22,15 @@ interface Props {
       {
         breakpoint: 747,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToShow: 2,
+          slidesToScroll: 1,
           initialSlide: 1
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1
         }
       }
@@ -48,14 +48,12 @@ interface Props {
                   return <Card key={index + link} className="bg-dark">
                     
                   <Card.Body>
-                      <Card.Header style={{'border':"none"}}>
-                      <a className="icon-link" target="__blank" href={link.link}>
-                          <h5 className="text-center">{link.title}</h5>
-                          </a>
-                      </Card.Header>
-                      <a className="icon-link" target="__blank" href={link.link}>
+
+                      
+                      <a className="icon-link text-light" target="__blank" href={link.link}>
                       <Image style={{"height":"100px","margin":"auto","display":"block"}}
                           src={link.src} alt={link.alt} />
+                          <h5 className="text-center">{link.title}</h5>
                       </a>
                   </Card.Body>
                   

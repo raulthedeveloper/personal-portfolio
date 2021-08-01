@@ -2,7 +2,7 @@ import React, { ReactComponentElement } from 'react'
 import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 
 
-const GitHubCta = ({dark, link, hasCode}) => {
+const GitHubCta = ({dark, link}) => {
     return (
 
         <div className={dark ? "dark-section" : null}>
