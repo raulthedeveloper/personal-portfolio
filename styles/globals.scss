@@ -91,10 +91,15 @@ $accent-color : orange;
   cursor: pointer;
 }
 
+@media only screen and (max-width:360px){
+  .section-header{
+    font-size: 1.8rem;
+  }
+}
 
 @media only screen and (max-width:450px){
   .section-header{
-    font-size: 8vw;
+    letter-spacing: unset;
   }
 }
 

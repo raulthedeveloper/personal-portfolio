@@ -11,7 +11,7 @@ const SingeTestimonial = ({data,divider}) => {
                     <Card.Body>
                         <Image width="100" className="m-auto rounded-circle" src={data[0].sizes.thumbnail} />
                         <h2 className="text-dark text-center">{data[1]}</h2>
-                        <div className="testimonial-text" dangerouslySetInnerHTML={{__html:data[2]}} />
+                        <div className="testimonial-text" dangerouslySetInnerHTML={{__html:data[2].substring(0, 300) + ' ' + '[...]'}} />
                         </Card.Body>
                         <Card.Footer className="d-flex">
                             <AppModal data={data} />
