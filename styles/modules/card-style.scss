@@ -1,0 +1,38 @@
+.card-img-overlay{
+    background: #00000038;
+      display: flex;
+  }
+  
+  
+  
+  .card-img-overlay:hover{
+    background: #ffa500a6;
+  }
+  
+  .card-title{
+     margin: auto;
+      background: #00000094;
+      padding: 1rem;
+  }
+
+
+  .custom-card{
+    background-color: #fff0;
+    border: none;
+    color: white;
+  
+    &-header{
+      background-color: #fff0;
+  
+    }
+  }
+
+
+  .card{
+    border: none;
+  
+    &-header{
+      background: none;
+      color: white;
+    }
+  }

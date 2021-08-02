@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  
+  input, textarea{
+    background: #38383800;
+    color: white;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: solid 1px #ffffff4a;
+  }
+
+  .hire-form{
+    background-color: #f8f9fa1a;
+    
+    label{
+      color: white;
+    }
+  }

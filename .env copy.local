@@ -1,5 +1,0 @@
-NEXT_PUBLIC_PERSONAL_PORTFOLIO_API = http://api.raulthedeveloper.com/wp-json/wp/v2/personal_portfolio
-NEXT_PUBLIC_TECH_SKILLS_API = http://api.raulthedeveloper.com/wp-json/wp/v2/tech_skills/
-NEXT_PUBLIC_TESTIMONIAL_API = http://api.raulthedeveloper.com/wp-json/wp/v2/testimonials/
-NEXT_PUBLIC_ITEM_API = http://api.raulthedeveloper.com/wp-json/wp/v2/portfolio_item
-NEXT_PUBLIC_GALLERY_API = http://api.raulthedeveloper.com/wp-json/wp/v2/envira-gallery
