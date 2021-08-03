@@ -88,9 +88,9 @@ const about = ({data}) => {
                 </Container>
             </section>
 
-            <GitHubCta dark={false} link={"https://github.com/raulthedeveloper"}/>
+            <GitHubCta dark={false}  link={"https://github.com/raulthedeveloper"}/>
                 
-        <HireMe dark={true}/>
+        <HireMe dark={true} text={data[0].ACF.hire_me}/>
 
                 
             </Layout>
