@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { Image } from 'react-bootstrap'
+import ImageNext from 'next/image'
+
 
 
 export default function Technical({toggleSlide,techData}) {
@@ -22,7 +23,13 @@ return (
         
         techData.map((e:string[],index:number) =>{
           return <Col key={index + e.title} md={3} sm={6} xs={6} onClick={()=>toggleSlide(true,e.ACF.logo.url,e.title.rendered,e.content.rendered)} className="logoBox">
-          <Image src={e.ACF.logo.url} alt="react logo" width={120} height={120} />
+          {/* <Image src={e.ACF.logo.url} alt="react logo" width={120} height={120} /> */}
+          <ImageNext 
+            src={e.ACF.logo.url}
+            alt="react logo"
+            width={120}
+            height={120}
+          />
           <p>{e.title.rendered}</p>
         </Col>
         })

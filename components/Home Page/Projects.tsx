@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container,Row, Button, Card } from 'react-bootstrap'
 import Link from 'next/link'
+import ImageNext from 'next/image'
+
 
 
 export default function Projects({recentProject}) {
@@ -17,10 +19,11 @@ export default function Projects({recentProject}) {
                     <div className="div1"> 
                     <Link  href={'./AllProjects/0'}>
                                     <Card className="bg-dark text-white project-thumbnail h-100">
-                                        <Card.Img
-                                        
-                                            src={recentProject[0].ACF.screen_shot_1.sizes.large}
-                                            alt="Card image" />
+                                            <ImageNext 
+                                                 src={recentProject[0].ACF.screen_shot_1.sizes.large}
+                                                 alt="Card image" 
+                                                layout="fill"
+                                                />
                                         <Card.ImgOverlay>
                                             <Card.Title>{recentProject[0].ACF.title}</Card.Title>
                                             
@@ -32,9 +35,16 @@ export default function Projects({recentProject}) {
                     <div className="div2">
                     <Link  href={'./AllProjects/1'}>
                                     <Card className="bg-dark text-white project-thumbnail h-100 mb-0">
-                                        <Card.Img
+                                        {/* <Card.Img
                                             src={recentProject[1].ACF.screen_shot_1.sizes.medium}
-                                            alt="Card image" />
+                                            alt="Card image" /> */}
+
+                                            <ImageNext 
+                                                src={recentProject[1].ACF.screen_shot_1.sizes.medium}
+                                                alt="Card image" 
+                                                layout="fill"
+                                                />
+                                           
                                         <Card.ImgOverlay>
                                             <Card.Title>{recentProject[1].ACF.title}</Card.Title>
                                             
@@ -47,9 +57,12 @@ export default function Projects({recentProject}) {
                     <div className="div3"> 
                     <Link  href={'./AllProjects/2'}>
                                     <Card className="bg-dark text-white project-thumbnail h-100">
-                                        <Card.Img
-                                            src={recentProject[2].ACF.screen_shot_1.sizes.medium}
-                                            alt="Card image" />
+
+                                            <ImageNext 
+                                                 src={recentProject[2].ACF.screen_shot_1.sizes.medium}
+                                                 alt="Card image"
+                                                layout="fill"
+                                                />
                                         <Card.ImgOverlay>
                                             <Card.Title>{recentProject[2].ACF.title}</Card.Title>
                                             

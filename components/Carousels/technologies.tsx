@@ -2,7 +2,8 @@ import React from 'react'
 import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
-import { Image, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import ImageNext from 'next/image'
 
 
 interface Props {
@@ -51,8 +52,18 @@ interface Props {
 
                       
                       <a className="icon-link text-light" target="__blank" href={link.link}>
-                      <Image style={{"height":"100px","margin":"auto","display":"block"}}
-                          src={link.src} alt={link.alt} />
+                      {/* <Image style={{"height":"100px","margin":"auto","display":"block"}}
+                          src={link.src} alt={link.alt} /> */}
+                          <div className="technologies-icon-container">
+                          <ImageNext 
+                            src={link.src}
+                            height={100}
+                            width={100}
+                            alt={link.alt}
+                          />
+                          </div>
+                          
+
                           <h5 className="text-center">{link.title}</h5>
                       </a>
                   </Card.Body>

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css"
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import { Image } from 'react-bootstrap';
+import ImageNext from 'next/image'
 
 
 
@@ -48,9 +49,18 @@ export default function Screenshots({images}) {
       <Slider {...settings}>
       {     
             images.map((e,index)=>{
-              return <div key={index + e.name}>
-              <Image  fluid style={{'width':'95%','margin':'auto','height':'400px'}}
-              src={e.src} />
+              return <div key={index + e.name} >
+              {/* <Image  fluid style={{'width':'95%','margin':'auto','height':'400px'}}
+              src={e.src} /> */}
+              <div style={{"width":"95%","height":"400px",'margin':'auto'}}>
+              <ImageNext
+                src={e.src}
+                height={600}
+                width={600}
+              />
+              </div>
+              
+              
               </div>
             })
           }

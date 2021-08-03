@@ -3,6 +3,7 @@ import Layout from '../../components/layouts/Layout'
 import Link from 'next/link'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import GitHubCta  from '../../components/GitHubCta'
+import ImageNext from 'next/image'
 
 
 export async function getStaticProps(context) {
@@ -37,9 +38,13 @@ export async function getStaticProps(context) {
                                    return <Col key={index} md={4} className="mb-1">
                                 <Link  href={'./AllProjects/' + index}>
                                     <Card className="bg-dark text-white project-thumbnail">
-                                        <Card.Img
+
+                                            <ImageNext 
                                             src={e.ACF.screen_shot_1.url}
-                                            alt="Card image" />
+                                            alt="Card image"
+                                            layout="fill"
+                                            priority
+                                            />
                                         <Card.ImgOverlay>
                                             <Card.Title>{e.ACF.title}</Card.Title>
                                             

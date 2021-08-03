@@ -1,12 +1,15 @@
 .card-img-overlay{
     background: #00000038;
       display: flex;
+      justify-content: center;
   }
   
   
-  
-  .card-img-overlay:hover{
-    background: #ffa500a6;
+  .project-thumbnail{
+    .card-img-overlay:hover{
+      background: #ffa500a6;
+    }
+    
   }
   
   .card-title{

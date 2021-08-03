@@ -1,12 +1,13 @@
 import React, {useState,useEffect} from 'react'
 
-import { Container,Row,Image,Col,Card,ListGroup } from 'react-bootstrap'
-// import Image from 'next/image'
+import { Container,Row,Col,ListGroup,Card } from 'react-bootstrap'
 import Layout from '../../components/layouts/Layout'
 import Screenshots from '../../components/Carousels/screenshots';
 import Technologies from '../../components/Carousels/technologies';
 import SingeTestimonial from '../../components/SingeTestimonial';
 import  GitHubCta  from '../../components/GitHubCta'
+import ImageNext from 'next/image'
+
 
 
 
@@ -153,18 +154,27 @@ return (
         <section className="project-hero mt-0">
             <Container fluid className="project-hero-container">
                 <Row>
-                    
-                    <div className="jumbotron" style={{"backgroundImage":`linear-gradient(90deg, rgba(0,0,0,0.6) 100%, rgba(2,2,15,1) 100%),url(${item.project_gif.url})`}}>
 
-                        <div className="see-site">
-                        <h1 className="display-4 text-center">{item.title}</h1>
-                        <p className="lead text-center">{item.headline}</p>
-                        <p className="lead">
-                            <a target="__blank" className="btn btn-primary btn-lg" href={item.site_url} role="button">Visit Site</a>
-                        </p>
-                        </div>
-                        
-                    </div>
+                <Card className="bg-dark text-white project-display">
+                                        
+
+                                            <ImageNext 
+                                            src={item.project_gif.url}
+                                            alt="Card image"
+                                            layout="fill"
+                                            />
+                                        <Card.ImgOverlay>
+                                        <div className="see-site">
+                                        <h1 className="display-4 text-center">{item.title}</h1>
+                                        <p className="lead text-center">{item.headline}</p>
+                                        <p className="lead">
+                                            <a target="__blank" className="btn btn-primary btn-lg" href={item.site_url} role="button">Visit Site</a>
+                                        </p>
+                                            </div>
+                                        </Card.ImgOverlay>
+                                    </Card>
+                    
+                    
 
                 </Row>
                 </Container>

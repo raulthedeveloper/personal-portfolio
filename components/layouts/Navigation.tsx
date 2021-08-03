@@ -11,7 +11,7 @@ export default function navigation() {
 
 <Navbar variant="dark" expand="lg">
   <Container>
-    <Navbar.Brand href="#home" ><span className="section-header">Raul Rodriguez</span></Navbar.Brand>
+    <Navbar.Brand href="/" ><span className="section-header">Raul Rodriguez</span></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
       <Nav className="me-auto">
