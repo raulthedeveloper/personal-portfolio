@@ -57,6 +57,7 @@ export default function Screenshots({images}) {
                 src={e.src}
                 height={600}
                 width={600}
+                priority
               />
               </div>
               

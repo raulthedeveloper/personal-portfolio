@@ -158,10 +158,11 @@ return (
                 <Card className="bg-dark text-white project-display">
                                         
 
-                                            <ImageNext 
+                                            <Card.Img 
+                                            style={{"height":"100%"}}
                                             src={item.project_gif.url}
                                             alt="Card image"
-                                            layout="fill"
+                                            
                                             />
                                         <Card.ImgOverlay>
                                         <div className="see-site">
@@ -174,6 +175,17 @@ return (
                                         </Card.ImgOverlay>
                                     </Card>
                     
+                    {/* <div className="jumbotron" style={{"backgroundImage":`linear-gradient(90deg, rgba(0,0,0,0.6) 100%, rgba(2,2,15,1) 100%),url(${item.project_gif.url})`}}>
+
+                        <div className="see-site">
+                        <h1 className="display-4 text-center">{item.title}</h1>
+                        <p className="lead text-center">{item.headline}</p>
+                        <p className="lead">
+                            <a target="__blank" className="btn btn-primary btn-lg" href={item.site_url} role="button">Visit Site</a>
+                        </p>
+                        </div>
+                        
+                    </div> */}
                     
 
                 </Row>
