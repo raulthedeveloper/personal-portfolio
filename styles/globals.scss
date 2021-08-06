@@ -9,7 +9,10 @@ $secondary-color: #23272b;
 $accent-color : orange;
 
 
-
+.profile-img{
+  width: 80%;
+  height: 70%;
+}
 
 
 .list-group-item {
@@ -79,9 +82,9 @@ $accent-color : orange;
     font-weight: 300;
   }
 
-  span{
-    color: $accent-color;
-  }
+  // span{
+  //   color: $accent-color;
+  // }
 }
 // "margin":"auto","display":"flex","justifyContent":"center"
 
@@ -105,6 +108,14 @@ $accent-color : orange;
   cursor: pointer;
 }
 
+.mobile-about-title{
+  display: none;
+  
+  
+  
+}
+
+
 @media only screen and (max-width:360px){
   .section-header{
     font-size: 1.8rem;
@@ -114,6 +125,11 @@ $accent-color : orange;
 @media only screen and (max-width:450px){
   .section-header{
     letter-spacing: unset;
+  }
+  .mobile-about-title{
+    h2{
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -130,10 +146,13 @@ $accent-color : orange;
   }
 
   .profile-img{
-    width: 100%;
+    width: 50%;
+    height: 100%;
   }
 
-
+  .rounded-circle{
+    border: solid $accent-color 3px;
+  }
  
 
    /*Big smartphones [426px -> 600px]*/
@@ -162,6 +181,28 @@ $accent-color : orange;
         width: 100%;
       }
     }
+
+}
+
+@media only screen and (max-width: 767px){
+  .mobile-about-title{
+    display: initial;
+  }
+  .about-title{
+    display: none;
+  }
+  .profile-img{
+    width: 50%;
+    height: 100%;
+  }
+}
+
+
+@media only screen and (min-width: 767px){
+  .profile-img{
+    width: auto;
+    height: auto;
+  }
 
 }
 

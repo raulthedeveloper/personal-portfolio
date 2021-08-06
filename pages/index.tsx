@@ -67,7 +67,8 @@ export default function Home({data,tech,testimonialData,portfolioItems}) {
 
       setPageState:setPageState({
         introImg:apiData.about_me_image.sizes.medium,
-        introtitle:apiData.about_me,
+        introtitle:apiData.about_me_title,
+        introParagraph:apiData.about_me,
         hireContent:apiData.hire_me
       })
       
@@ -99,7 +100,7 @@ export default function Home({data,tech,testimonialData,portfolioItems}) {
     
     
 
-      <Introduction image={pageState.introImg} text={pageState.introtitle}></Introduction>
+      <Introduction image={pageState.introImg} title={pageState.introtitle} text={pageState.introParagraph}></Introduction>
 
       {
         showSlide ? <TechInfoSlide toggleSlide={toggleSlide} slideImg={slideImg} slideTitle={slideTitle} slideContent={slideContent}/> : <Technical techData={tech} toggleSlide={toggleSlide} />
